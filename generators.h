@@ -1,3 +1,6 @@
+#ifndef GENERATORS_H
+#define GENERATORS_H
+
 #include <vector>
 #include <cstdlib>
 #include <chrono>
@@ -28,7 +31,7 @@ int* exponential_generator(float median, int num){   //use exponential distribut
         double number = distribution(generator);
         arr[i] = round( number * 100.0 ) / 100.0; // 2 decimal places
         res[i] = arr[i] * 10;
-        if(res[i]==0)
+        if(res[i]==0)   
             res[i]+=1;
     }
     return res;
@@ -56,3 +59,5 @@ int random_generator(int max){       //returns random number from[0, max-1]
 bool propability(int k){
     return  (rand() % 100) < k;
 }
+
+#endif

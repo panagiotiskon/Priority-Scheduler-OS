@@ -1,15 +1,12 @@
 #ifndef SEMAPHORE_CPP
 #define SEMAPHORE_CPP
 
-//file contents
-
 
 #include "stdio.h"
 #include <stdlib.h>
 #include <iostream>
 #include <queue>
 #include "process.h"
-
 
 
 using namespace std;

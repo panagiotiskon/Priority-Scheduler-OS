@@ -13,7 +13,9 @@ Process::Process(int Pid, int ar_t, int b_t, int l_t, int pr){
     this->burst_time=b_t;
     this->remaining_time=burst_time;
     this->lifetime = l_t;
-    this->flag=-1;
+    this->running=-1;
+    this->blocked=-1;
+    this->t_priority=pr;
     cout<<"new process created with pid = "<<this->pid<<"\n";
 }
 void Process::set_state(string s){
@@ -36,12 +38,10 @@ int Process::get_rem_time(){
     return this->remaining_time;
 }
 
-int Process::get_wait_time(){
-    return this->waiting_time;
-}
 
 void Process::print_all(){
-    cout<<"Process pid:"<<this->pid<<" arrival time: "<<this->arrival_time<<" burst time: "<<this->burst_time<<" priority: "<<this->priority<<" lifetime "<<this->lifetime<<" state "<<this->state<<endl;
+    cout<<"Process pid:"<<this->pid<<" arrival time: "<<this->arrival_time<<" burst time: "<<this->burst_time;
+    cout<<" priority: "<<this->priority<<" lifetime "<<this->lifetime<<" state "<<this->state<<endl;
 }
 
 
