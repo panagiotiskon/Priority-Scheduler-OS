@@ -1,3 +1,5 @@
+//1115201900266
+//PANAGIOTIS KONTOEIDIS
 
 #include "process.h"
 
@@ -17,9 +19,6 @@ Process::Process(int Pid, int ar_t, int b_t, int l_t, int pr){
     this->blocked=-1;
     this->t_priority=pr;
     cout<<"new process created with pid = "<<this->pid<<"\n";
-}
-void Process::set_state(string s){
-    this->state = s;
 }
 
 int Process::get_priority(){

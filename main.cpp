@@ -1,3 +1,6 @@
+//1115201900266
+//PANAGIOTIS KONTOEIDIS
+
 #include "process.h"
 #include "generators.h"
 #include "semaphore.h"
@@ -9,7 +12,9 @@ using namespace std;
 int num;
 int s_num;
 int k; 
-int lamda;
+float lamda_a;
+float lamda_b;
+float lamda_l;
 int random_s;
 
 Process* temp; 
@@ -35,15 +40,15 @@ void init(){
     }
 }
 
-int Preemptive_Priority(int num, int s_num, int k){
+int Preemptive_Priority(int num, int s_num, int k, float lamda_ar, float lamda_b, float lamda_l){
 
-    ofstream MyFile("Preemptive.txt");
+    ofstream MyFile("Preemptive_Priority.txt");
     priority_queue<Process*, vector<Process*>, ComparePriority> Q;
 
     int* priority= uniform_generator(num);
-    int* arrival_t = exponential_generator(1, num);
-    int* burst_t = exponential_generator(1, num);
-    int* lifetime_t = exponential_generator(1, num);
+    int* arrival_t = exponential_generator(lamda_ar, num);
+    int* burst_t = exponential_generator(lamda_b, num);
+    int* lifetime_t = exponential_generator(lamda_l, num);
 
     Process *p[num];
     Semaphore *s[s_num];
@@ -65,10 +70,6 @@ int Preemptive_Priority(int num, int s_num, int k){
                 p[i] = t;
             }   
         }
-    }
-
-    for(int i=0; i<num; i++){
-        p[i]->print_all();
     }
 
     MyFile<<" The Processes are: \n\n";
@@ -97,10 +98,6 @@ int Preemptive_Priority(int num, int s_num, int k){
             }            
         }
 
-        cout<<time<<endl;
-        for(int i=0; i<num; i++){
-            p[i]->print_all();
-        }
 
         if(terminated_processes==num){          //when all processes are terminated break
             break;
@@ -268,13 +265,15 @@ int Preemptive_Priority(int num, int s_num, int k){
         MyFile<<"-------------------------------------------------------\n";      
     }
 
+    for(int i=0;i<num;i++){
+            MyFile<<" Pid "<< p[i]->pid<<" arrival "<<p[i]->arrival_time<<" burst "<<p[i]->burst_time<<" priority "<<p[i]->get_priority()<<" service "<<p[i]->lifetime<<" state "<<p[i]->state<<" \n";
+    }
 
     MyFile<<"-------------------------------------------------------\n";
 
     MyFile<<"\nAverage Waiting Time by priority is:\n\n";
     for(int i=0; i<7; i++){
         float res;
-        cout<<waiting_time[i]<<" "<<processes_by_priority[i]<<endl;
         if(waiting_time[i]==0)
             res=0;
         else
@@ -301,15 +300,15 @@ int Preemptive_Priority(int num, int s_num, int k){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int Priority_Inheritance(int num, int s_num, int k){
+int Priority_Inheritance(int num, int s_num, int k,float lamda_ar, float lamda_b, float lamda_l){
 
     ofstream MyFile("Priority_Inheritance.txt");
     priority_queue<Process*, vector<Process*>, ComparePriority> Q;
 
     int* priority= uniform_generator(num);
-    int* arrival_t = exponential_generator(1, num);
-    int* burst_t = exponential_generator(1, num);
-    int* lifetime_t = exponential_generator(1, num);
+    int* arrival_t = exponential_generator(lamda_ar, num);
+    int* burst_t = exponential_generator(lamda_b, num);
+    int* lifetime_t = exponential_generator(lamda_l, num);
 
     Process *p[num];
     Semaphore *s[s_num];
@@ -331,10 +330,6 @@ int Priority_Inheritance(int num, int s_num, int k){
                 p[i] = t;
             }   
         }
-    }
-
-    for(int i=0; i<num; i++){
-        p[i]->print_all();
     }
 
     MyFile<<" The Processes are: \n\n";
@@ -361,11 +356,6 @@ int Priority_Inheritance(int num, int s_num, int k){
                 p[i]->state = "TERMINATED";
                 terminated_processes++;
             }            
-        }
-
-        cout<<time<<endl;
-        for(int i=0; i<num; i++){
-            p[i]->print_all();
         }
 
         if(terminated_processes==num){          //when all processes are terminated break
@@ -539,7 +529,9 @@ int Priority_Inheritance(int num, int s_num, int k){
 
         MyFile<<"-------------------------------------------------------\n";      
     }
-
+    for(int i=0;i<num;i++){
+            MyFile<<" Pid "<< p[i]->pid<<" arrival "<<p[i]->arrival_time<<" burst "<<p[i]->burst_time<<" priority "<<p[i]->get_priority()<<" service "<<p[i]->lifetime<<" state "<<p[i]->state<<" \n";
+    }
 
     MyFile<<"-------------------------------------------------------\n";
 
@@ -581,9 +573,18 @@ int main(){
     cout<<"enter a value between 0-100 for the propability"<<endl;
     cin>>k;
 
-    Preemptive_Priority(num, s_num, k);
+    cout<<"enter lamda for arrival of processes"<<endl;
+    cin>>lamda_a;
+    
+    cout<<"enter lamda for lifetime of processes"<<endl;
+    cin>>lamda_l;    
+    
+    cout<<"enter lamda for critical section of processes"<<endl;
+    cin>>lamda_b;
+
+    Preemptive_Priority(num, s_num, k, lamda_a, lamda_b, lamda_l);
     init();
-    Priority_Inheritance(num, s_num, k);
+    Priority_Inheritance(num, s_num, k, lamda_a, lamda_b, lamda_l);
 
     return 0;
 

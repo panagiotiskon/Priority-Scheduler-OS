@@ -1,3 +1,5 @@
+//1115201900266
+//PANAGIOTIS KONTOEIDIS
 
 #ifndef PROCESS_CPP
 #define PROCESS_CPP
@@ -12,8 +14,8 @@ using namespace std;
 
 class Process{
     public:
-        unsigned int pid;
-        unsigned int priority;
+        int pid;
+        int priority;
         int arrival_time;
         int burst_time;
         int remaining_time;
@@ -25,7 +27,6 @@ class Process{
 
         Process();
         Process(int, int, int, int, int);
-        void set_state(string s);
         int get_priority();
         int get_arr_time();
         int get_burst_time();
