@@ -1,7 +1,5 @@
-# Priority Scheduler Simulator
-
-## Goal of the Project:
-Simulate Preemptive Scheduling with and without Priority Inheritance
+## Goal of this Project:
+Simulate Preemptive Scheduling with and without Priority Inheritance. 
 
 ## How run:
  - make 
