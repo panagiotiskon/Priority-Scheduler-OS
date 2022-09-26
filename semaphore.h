@@ -27,8 +27,6 @@ class Semaphore {
     Process* front();
     void pop();
     bool isEmpty();
-    void aquire();
-    void release();
     bool isfree();
 };
 

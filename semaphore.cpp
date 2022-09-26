@@ -24,14 +24,6 @@
         return S_Q.empty();
     }
 
-    void Semaphore::aquire(){
-        this->value=0;
-    }
-
-    void Semaphore::release(){
-        this->value=1;
-    }
-
     bool Semaphore::isfree(){
         return (this->value>0) ? true : false;
     }
