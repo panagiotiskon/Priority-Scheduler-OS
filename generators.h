@@ -11,10 +11,6 @@
 
 using namespace std;
 
-bool cmpf(float A, float B, float epsilon = 0.005f)     //return true if float A < float B
-{
-    return (fabs(A - B) < epsilon);
-}
 
 struct ComparePriority {
     bool operator()(Process* p1, Process* p2)
