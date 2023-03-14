@@ -2,7 +2,8 @@
 //PANAGIOTIS KONTOEIDIS
 
 
-#include "semaphore.h"
+#include "semaphore.hpp"
+
 
     Semaphore::Semaphore(){
         this->value=1;

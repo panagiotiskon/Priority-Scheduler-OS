@@ -1,12 +1,9 @@
 //1115201900266
 //PANAGIOTIS KONTOEIDIS
 
-#include "process.h"
+#include "process.hpp"
 
-
-Process::Process(){
-    cout<<"new process created\n";
-}
+Process::Process(){}
 
 Process::Process(int Pid, int ar_t, int b_t, int l_t, int pr){
     this->pid=Pid;
@@ -18,7 +15,6 @@ Process::Process(int Pid, int ar_t, int b_t, int l_t, int pr){
     this->running=-1;
     this->blocked=-1;
     this->t_priority=pr;
-    cout<<"new process created with pid = "<<this->pid<<"\n";
 }
 
 int Process::get_priority(){
