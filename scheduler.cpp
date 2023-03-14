@@ -1,8 +1,13 @@
+#include <stdlib.h>
+#include <iostream>
+
 
 #include "scheduler.hpp"
-#include "process.hpp"
 #include "generators.hpp"
 #include "semaphore.hpp"
+#include "process.hpp"
+
+using namespace std;
 
 int num;
 int s_num;

@@ -1,10 +1,9 @@
-#ifndef SCHEDULER_CPP
-#define SCHEDULER_CPP
+#ifndef SCHEDULER_HPP
+#define SCHEDULER_HPP
 
 #include <queue>
 #include <fstream>
 
-using namespace std;
 
 void init();
 int Preemptive_Priority(int num, int s_num, int k, float lamda_ar, float lamda_b, float lamda_l);

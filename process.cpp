@@ -3,6 +3,8 @@
 
 #include "process.hpp"
 
+using namespace std;
+
 Process::Process(){}
 
 Process::Process(int Pid, int ar_t, int b_t, int l_t, int pr){

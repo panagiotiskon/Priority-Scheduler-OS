@@ -1,15 +1,11 @@
 #include "generators.hpp"
-#include "process.hpp"
+#include <vector>
+#include <cstdlib>
+#include <chrono>
+#include <random>
 
 using namespace std;
 
-struct ComparePriority
-{
-    bool operator()(Process *p1, Process *p2)
-    {
-        return p2->get_priority() < p1->get_priority(); // return "true" if "p1" is ordered before "p2"
-    }
-};
 
 int *exponential_generator(float median, int num)
 { // use exponential distribution

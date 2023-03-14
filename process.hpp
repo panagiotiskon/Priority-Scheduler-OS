@@ -4,13 +4,10 @@
 #ifndef PROCESS_CPP
 #define PROCESS_CPP
 
-
-#include "stdio.h"
-#include <stdlib.h>
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
-
 
 class Process{
     public:
