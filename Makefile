@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-I.
-DEPS = process.h generators.h semaphore.h
-OBJ = main.o process.o  semaphore.o
+DEPS = process.hpp generators.hpp semaphore.hpp scheduler.hpp generators.hpp
+OBJ = main.o process.o semaphore.o scheduler.o	generators.o
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
