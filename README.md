@@ -2,8 +2,8 @@
 Simulate Preemptive Scheduling with and without Priority Inheritance. 
 
 ## How run:
- - make 
- - ./exe
+    make 
+    ./exe
  
 ## Check here for details: 
 
