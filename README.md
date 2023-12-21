@@ -1,4 +1,4 @@
-## Goal of this Project:
+## 📄 Goal of this Project:
 Simulate Preemptive Scheduling with and without Priority Inheritance. 
 
 ## How run:
